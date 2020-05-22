@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { Link } from  'react-router-dom'
+
 
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <div>
         image here with form link
         <p>
-        <Link to='/pizza'><button> Order Pizza</button></Link>
+        something
         </p>
       </div>
       <div>

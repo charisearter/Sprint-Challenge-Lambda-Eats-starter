@@ -20,8 +20,8 @@ const App = () => {
     <div className="App">
       <div className='container'>
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/pizza'>Order a Pizza</Link></li>
+          <li><Link to='/'><button> Home </button></Link></li>
+          <li><Link to='/pizza'><button> Order Pizza</button></Link></li>
         </ul>
       <Route exact path='/' component={Home} />
       <Route exact path='/pizza' component={PizzaForm} />

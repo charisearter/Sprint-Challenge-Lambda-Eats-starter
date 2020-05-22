@@ -1,6 +1,8 @@
 import React from 'react'
-import { Link } from  'react-router-dom'
+
 const PizzaForm = () => {
+
+
 //Sauce choices
   const sauces = ['Original Red', 'Garlic Ranch', 'BBQ Sauce', 'Spinach Alfredo', 'Caribbean Jerk'];
 //List sauce choices in  designated area
@@ -24,8 +26,41 @@ const PizzaForm = () => {
     
     <div>
       <h3>This is the Pizza Form</h3>
-      <Link to='/'><button> Back to Home</button></Link>
+     
       <form>
+        <div className='ContactInfo'>
+          <input 
+          type='text'
+          name='fname'
+          id='fnameInput'
+          minLength='2'
+          maxLength='10'
+          placeholder='First Name' 
+          />
+          &nbsp;&nbsp;
+          <input 
+          type='text'
+          name='lname'
+          id='lnameInput'
+          minLength='2'
+          maxLength='15'
+          placeholder='Last Name' 
+          />
+        </div>
+        <div>
+          <h4>Choose a size</h4>
+          <h5>Required</h5>
+          <div id='dropdown-form'>
+          <select if='size'>
+              <option value=''>Choose a Size</option>
+              <option value='Small'>Small</option>
+              <option value='Medium'>Medium</option>
+              <option value='Large'>Large</option>
+              <option value='XL'>Extra Large</option>
+              <option value='2XL'>2x Extra Large</option>
+          </select>
+          </div>
+        </div>
         <h4>Choose a Sauce</h4>
         <h5>Required</h5>
         <div className='radio-form'>
@@ -38,7 +73,17 @@ const PizzaForm = () => {
        {listToppings}
       </div>
 
-
+      <div className="instructions">
+        <h4>Special Instructions</h4>
+        <input 
+          type='text'
+          name='instructions'
+          id='specialInstructions'
+          maxLength='200'
+          placeholder='Knock on the door, the gate code, etc...' 
+          />
+       
+      </div>
       </form>
     </div>
   )
