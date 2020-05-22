@@ -1,14 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const PizzaForm = () => {
+  const [ formState, setFormState ] = useState({
+    fname: '',
+    lname: '',
+    
+});
 
+const [ isChecked, setIsChecked ] = useState({
+  addSauce: false,
+  addTopping: false
+});
+
+const [ errors, setErrors ] = useState({
+    fname: '',
+    lname: '',
+    email: '',
+    password: '',
+    terms: '',
+});
+
+const onChange = (e) => {
+  setFormState(e.target.value);
+  console.log(e.target.value);
+  setIsChecked(e.target.checked);
+  console.log(e.target.checked, e.target.id);
+}
 
 //Sauce choices
   const sauces = ['Original Red', 'Garlic Ranch', 'BBQ Sauce', 'Spinach Alfredo', 'Caribbean Jerk'];
 //List sauce choices in  designated area
   const listSauces = sauces.map((sauce) => 
   <div className= 'sauce-form'>
-    <input type='radio' id={sauce} name= {sauce} />
+    <input type='checkbox' id={sauce} name= 'addSauce' onChange={onChange}/>
     <label for={sauce}> {sauce} </label>
   </div>
   );
@@ -17,7 +41,7 @@ const PizzaForm = () => {
 //List topping choices in designated area
   const listToppings = toppings.map((topping) => 
   <div className= 'toppings-form'>
-    <input name = {topping} type ='checkbox' id={topping} />
+    <input name = 'addTopping' type ='checkbox' id={topping} onChange={onChange} />
     <label for={topping}> {topping} </label>
     </div>
   );
@@ -82,9 +106,11 @@ const PizzaForm = () => {
           maxLength='200'
           placeholder='Knock on the door, the gate code, etc...' 
           />
-       
       </div>
       </form>
+      <div>
+        <button type='submit'>Submit order</button>
+      </div>
     </div>
   )
 }
