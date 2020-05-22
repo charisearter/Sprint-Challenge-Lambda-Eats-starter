@@ -9,7 +9,9 @@ const Home = () => {
       header here
       <div>
         image here with form link
+        <p>
         <Link to='/pizza'><button> Order Pizza</button></Link>
+        </p>
       </div>
       <div>
         cards for restaurantes here
