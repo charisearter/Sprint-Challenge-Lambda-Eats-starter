@@ -1,12 +1,24 @@
-import React from "react";
+import React, {Fragment} from "react";
+import { Link } from  'react-router-dom'
 
 
 const Home = () => {
   return (
-    <div>
-      Home is built here
+    <Fragment>
+      Header here
+      header here
+      <div>
+        image here with form link
+        <Link to='/pizza'><button> Order Pizza</button></Link>
+      </div>
+      <div>
+        cards for restaurantes here
+        3 columns
+        2 rows
+      </div>
       
-    </div>
+      
+    </Fragment>
   )
 }
 
