@@ -1,38 +1,46 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const PizzaForm = () => {
-  const [ formState, setFormState ] = useState({
+
+
+  // const [ fname, setFname ] = useState('')
+  // const [ lname, setLname ] = useState('')
+  // const [ size, setSize ] = useState('')
+  // const [ sauce, setSauce ] = useState('')
+  // const [ topping, setTopping ] = useState('')
+  // const [ instructions, setInstructions ] = useState('')
+
+  const [formData, setFormData ]= useState ({
     fname: '',
     lname: '',
-    
-});
+    size: '',
+    sauce: '',
+    instructions: '',
+    addTopping: '',
+  })
 
-const [ isChecked, setIsChecked ] = useState({
-  addSauce: false,
-  addTopping: false
-});
+// const [ isChecked, setIsChecked ] = useState({
+//   addTopping: false
+// });
 
-const [ errors, setErrors ] = useState({
-    fname: '',
-    lname: '',
-    email: '',
-    password: '',
-    terms: '',
-});
 
 const onChange = (e) => {
-  setFormState(e.target.value);
-  console.log(e.target.value);
-  setIsChecked(e.target.checked);
-  console.log(e.target.checked, e.target.id);
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
+    
+  })
+
 }
+
 
 //Sauce choices
   const sauces = ['Original Red', 'Garlic Ranch', 'BBQ Sauce', 'Spinach Alfredo', 'Caribbean Jerk'];
 //List sauce choices in  designated area
   const listSauces = sauces.map((sauce) => 
   <div className= 'sauce-form'>
-    <input type='checkbox' id={sauce} name= 'addSauce' onChange={onChange}/>
+    <input type='checkbox' id={sauce} name= 'sauce' onChange={onChange}/>
     <label for={sauce}> {sauce} </label>
   </div>
   );
@@ -76,18 +84,18 @@ const onChange = (e) => {
           <h5>Required</h5>
           <div id='dropdown-form'>
           <select if='size'>
-              <option value=''>Choose a Size</option>
-              <option value='Small'>Small</option>
-              <option value='Medium'>Medium</option>
-              <option value='Large'>Large</option>
-              <option value='XL'>Extra Large</option>
-              <option value='2XL'>2x Extra Large</option>
+              <option name='size' value=''>Choose a Size</option>
+              <option name='size' value='Small'>Small</option>
+              <option name='size' value='Medium'>Medium</option>
+              <option name='size' value='Large'>Large</option>
+              <option name='size' value='XL'>Extra Large</option>
+              <option name='size' value='2XL'>2x Extra Large</option>
           </select>
           </div>
         </div>
         <h4>Choose a Sauce</h4>
         <h5>Required</h5>
-        <div className='radio-form'>
+        <div className='sauce-form'>
           {listSauces}
         </div>
 
@@ -104,12 +112,23 @@ const onChange = (e) => {
           name='instructions'
           id='specialInstructions'
           maxLength='200'
-          placeholder='Knock on the door, the gate code, etc...' 
+          placeholder='Knock 3 times, etc...' 
           />
       </div>
       </form>
+      {/* <div>
+      <h3>Order for {formData.fname} {formData.lname}:</h3>
+      <p>Size: &nbsp;{formData.size} </p>
+      <p>Sauce: &nbsp;{formData.sauce.checked} </p>
+      <p>Toppings: &nbsp;{formData[toppings.checked]},&nbsp; </p>
+      <p>Special Instructions: &nbsp;{formData.instructions} </p>
+      </div> */}
       <div>
-        <button type='submit'>Submit order</button>
+        
+        <button type='submit' onChange ={(e) => {
+  e.preventDefault();
+  alert(`Order submitted!`)
+}}>Submit order</button>
       </div>
     </div>
   )
