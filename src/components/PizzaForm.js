@@ -1,15 +1,9 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+
 
 const PizzaForm = () => {
 
 
-  // const [ fname, setFname ] = useState('')
-  // const [ lname, setLname ] = useState('')
-  // const [ size, setSize ] = useState('')
-  // const [ sauce, setSauce ] = useState('')
-  // const [ topping, setTopping ] = useState('')
-  // const [ instructions, setInstructions ] = useState('')
 
   const [formData, setFormData ]= useState ({
     fname: '',
@@ -116,16 +110,10 @@ const onChange = (e) => {
           />
       </div>
       </form>
-      {/* <div>
-      <h3>Order for {formData.fname} {formData.lname}:</h3>
-      <p>Size: &nbsp;{formData.size} </p>
-      <p>Sauce: &nbsp;{formData.sauce.checked} </p>
-      <p>Toppings: &nbsp;{formData[toppings.checked]},&nbsp; </p>
-      <p>Special Instructions: &nbsp;{formData.instructions} </p>
-      </div> */}
+
       <div>
         
-        <button type='submit' onChange ={(e) => {
+        <button className= 'btn' type='submit' onChange ={(e) => {
   e.preventDefault();
   alert(`Order submitted!`)
 }}>Submit order</button>

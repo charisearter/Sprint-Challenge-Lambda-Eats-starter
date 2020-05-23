@@ -13,8 +13,18 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+
+A1. ‘useRouteMatch’ lets you grab the match object and use it inside the component without using <Route />. ‘useRouteMatch’ tries to match the current URL in the same way that a <Route> would. 
+
+
 2. How would you explain form validation to someone who has never programmed before?
+
+A2. Form validation is a way to check that the user filled out all the required information according to whatever rules are set. Such as, the email typed into it has to be a valid email or the password has to be a  minimum  number of letters  with a mix of numbers, upper and lowercase letters and special characters.
+
+
 3. In 1-2 sentences, define end to end testing.
+
+A3. End to End testing does just what it says, it tests the website from end to end, looking at the entire user experience. It mimics how a user might interact with the page, simulating real events.
 
 You are expected to be able to answer all these questions. Your responses contribute to your Sprint Challenge grade. Skipping this section **will** prevent you from passing this challenge.
 
@@ -44,14 +54,14 @@ Your MVP should include, at a minimum, the following components.
 - [x] Dropdown form component for pizza size
 - [x] Checklist form component for toppings - at least 4 (hint: name each separately!)
 - [x] Text input form component for special instructions
-- [ ] An Add to Order button that submits form and returns a database record of name, pizza size, sauce, and special instructions
+- [x] An Add to Order button that submits form and returns a database record of name, pizza size, sauce, and special instructions
 
 #### Testing MVP
 
 Implement the following tests in Cypress:
 
-- [ ] test that you can add text to the box
-- [ ] test that you can select multiple toppings
+- [x] test that you can add text to the box
+- [x] test that you can select multiple toppings
 - [ ] test that you can submit the form
 
 You may use the following wireframe (also in a folder above) as guidance as you design your site but it is not required that you do so.
